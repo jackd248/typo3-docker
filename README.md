@@ -10,7 +10,3 @@ These images are just like the original [composer images](https://hub.docker.com
 
 * Line 1: Pin PHP version
 * Line 42: Install PHP extension `mysqli`
-
-## Ansible
-
-Debian stable image with packages for ansible provisioning.

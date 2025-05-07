@@ -1,4 +1,4 @@
-FROM php:8.3-alpine AS binary-with-runtime
+FROM php:8.4-alpine AS binary-with-runtime
 
 RUN set -eux ; \
   apk add --no-cache --virtual .composer-rundeps \
@@ -12,6 +12,8 @@ RUN set -eux ; \
     tini \
     unzip \
     zip \
+    sshpass \
+    py3-pip \
     $([ "$(apk --print-arch)" != "x86" ] && echo mercurial) \
     $([ "$(apk --print-arch)" != "armhf" ] && echo p7zip)
 
@@ -22,7 +24,7 @@ memory_limit=-1\n\
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp
-ARG COMPOSER_VERSION=""
+ARG COMPOSER_VERSION="2.8.8"
 
 RUN set -eux ; \
   # install https://github.com/mlocati/docker-php-extension-installer
@@ -82,6 +84,10 @@ RUN set -eux ; \
   composer diagnose ; \
   rm -f /tmp/installer.php ; \
   find /tmp -type d -exec chmod -v 1777 {} +
+
+RUN pip3 install --break-system-packages \
+    db-sync-tool-kmi \
+    file-sync-tool-kmi
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 

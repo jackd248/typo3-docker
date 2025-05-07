@@ -17,15 +17,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - context: ./php8.1-composer
-            image: ghcr.io/xima-media/php8.1-composer
-            sarif: php8.1-composer.sarif
-          - context: ./php8.2-composer
-            image: ghcr.io/xima-media/php8.2-composer
-            sarif: php8.2-composer.sarif
-          - context: ./php8.3-composer
-            image: ghcr.io/xima-media/php8.3-composer
-            sarif: php8.2-composer.sarif
+          - context: ./php8.4-composer
+            image: ghcr.io/jackd248/php8.4-composer
+            sarif: php8.4-composer.sarif
 
     steps:
       - name: Checkout
