@@ -8,6 +8,7 @@ RUN set -eux ; \
     make \
     openssh-client \
     patch \
+    rsync \
     subversion \
     tini \
     unzip \
