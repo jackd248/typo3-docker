@@ -22,9 +22,9 @@ date.timezone=UTC\n\
 memory_limit=-1\n\
 " > $PHP_INI_DIR/php-cli.ini
 
-ENV COMPOSER_ALLOW_SUPERUSER 1
-ENV COMPOSER_HOME /tmp
-ARG COMPOSER_VERSION="2.8.8"
+ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_HOME=/tmp
+ARG COMPOSER_VERSION
 
 RUN set -eux ; \
   # install https://github.com/mlocati/docker-php-extension-installer

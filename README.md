@@ -1,12 +1,7 @@
-# Docker images
+# Deployment Docker Image
 
-This repository provides various docker images used in PHP development.
+This repository contains Docker images for deployment of the [PHP](https://www.php.net/) application. The images are based on the official PHP images and include some additional tools and configurations to make deployment easier.
 
-## PHP + composer
+## Usage
 
-These images are just like the original [composer images](https://hub.docker.com/_/composer), but with pinned PHP version and litte adjustments.
-
-### Changes
-
-* Line 1: Pin PHP version
-* Line 42: Install PHP extension `mysqli`
+ToDo
